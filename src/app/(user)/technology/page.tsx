@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { groq } from "next-sanity";
 import TechnologyList from "@/app/components/Project/TechnologyList";
 
+export const fetchCache = 'force-no-store';
 export const revalidate = 60;
 
 export const metadata: Metadata = {

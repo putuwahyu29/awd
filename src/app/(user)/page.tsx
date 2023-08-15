@@ -8,6 +8,8 @@ import Certificate from "@/app/components/Certificate";
 import { groq } from "next-sanity";
 import { getClient } from "lib/client";
 import PreviewNotif from "../components/Common/PreviewNotif";
+
+export const fetchCache = 'force-no-store';
 export const revalidate = 60;
 
 export const metadata: Metadata = {

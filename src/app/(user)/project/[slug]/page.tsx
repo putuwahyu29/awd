@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
 import SidebarProject from "@/app/components/Project/SidebarProject";
 
+export const fetchCache = 'force-no-store';
 export const revalidate = 60;
 
 export const metadata: Metadata = {

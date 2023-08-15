@@ -5,6 +5,7 @@ import { getClient } from "lib/client";
 import SectionHeader from "@/app/components/Common/SectionHeader";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
 
+export const fetchCache = 'force-no-store';
 export const revalidate = 60;
 
 export const metadata: Metadata = {

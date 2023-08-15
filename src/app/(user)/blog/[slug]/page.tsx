@@ -12,6 +12,7 @@ import BlogSearch from "@/app/components/Blog/BlogSearch";
 import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
 
+export const fetchCache = 'force-no-store';
 export const revalidate = 60;
 
 export const metadata: Metadata = {
