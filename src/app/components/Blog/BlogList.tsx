@@ -87,7 +87,7 @@ function BlogList({ posts }: Props) {
                       ))}
                       <h4 className="font-medium text-lg xl:text-itemtitle2 text-black hover:text-primary dark:hover:text-primary dark:text-white my-3">
                         <Link href={`/blog/${post.slug.current}`}>
-                          {`${post.title.slice(0, 40)}`}
+                          {`${post.title.slice(0, 70)}...`}
                         </Link>
                       </h4>
                       <div className="flex justify-between">
