@@ -93,7 +93,7 @@ function Project({ projects }: Props) {
                   <div className="mt-5 flex justify-between">
                     <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300">
                       <Link
-                        href={`/project${project.slug.current}`}
+                        href={`/project/${project.slug.current}`}
                         className="flex items-center"
                       >
                         <EyeIcon className="h-6 w-6 mr-2" />
