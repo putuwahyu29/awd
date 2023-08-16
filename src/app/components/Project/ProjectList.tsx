@@ -72,7 +72,7 @@ function ProjectList({ projects }: Props) {
                     </Link>
 
                     <div className="px-4">
-                      {project.technologies.slice(0, 3).map((technology) => (
+                      {project.technologies.slice(0, 2).map((technology) => (
                         <div key={technology._id} className="inline-flex">
                           <Link href={`/technology/${technology.slug.current}`}>
                             <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">

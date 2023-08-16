@@ -76,7 +76,7 @@ function BlogList({ posts }: Props) {
                     </Link>
 
                     <div className="px-4">
-                      {post.categories.slice(0, 3).map((category) => (
+                      {post.categories.slice(0, 2).map((category) => (
                         <div key={category._id} className="inline-flex">
                           <Link href={`/category/${category.slug.current}`}>
                             <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
@@ -87,7 +87,7 @@ function BlogList({ posts }: Props) {
                       ))}
                       <h4 className="font-medium text-lg xl:text-itemtitle2 text-black hover:text-primary dark:hover:text-primary dark:text-white my-3">
                         <Link href={`/blog/${post.slug.current}`}>
-                          {`${post.title.slice(0, 70)}...`}
+                          {`${post.title.slice(0, 40)}...`}
                         </Link>
                       </h4>
                       <div className="flex justify-between">

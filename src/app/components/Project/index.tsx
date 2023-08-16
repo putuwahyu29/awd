@@ -32,7 +32,7 @@ function Project({ projects }: Props) {
 
       <div className="mx-auto max-w-c-1280 px-4 md:px-8 xl:px-0 mt-15 xl:mt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.5 xl:gap-10">
-          {projects.slice(0, 3).map((project) => (
+          {projects.slice(0, 2).map((project) => (
             <div key={project._id}>
               <motion.div
                 variants={{
@@ -60,7 +60,7 @@ function Project({ projects }: Props) {
                 </Link>
 
                 <div className="px-4">
-                  {project.technologies.slice(0, 3).map((technology) => (
+                  {project.technologies.slice(0, 2).map((technology) => (
                     <div key={technology._id} className="inline-flex">
                       <Link href={`/technology/${technology.slug.current}`}>
                         <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
