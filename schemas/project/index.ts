@@ -97,11 +97,11 @@ export default defineType({
           type: "code",
           options: {
             languageAlternatives: [
-              { title: "jsx", value: "jsx" },
-              { title: "tsx", value: "tsx" },
-              { title: "css", value: "css" },
-              { title: "bash", value: "bash" },
-              { title: "php", value: "php" },
+              { title: "JavaScript JSX", value: "jsx" },
+              { title: "TypeScript TSX", value: "tsx" },
+              { title: "CSS", value: "css" },
+              { title: "Bash", value: "bash" },
+              { title: "PHP", value: "php" },
             ],
           },
         },
