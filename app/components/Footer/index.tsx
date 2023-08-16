@@ -213,7 +213,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <p>&copy; 2023 Awd. Dibuat dengan ❤️ oleh Agus</p>
+              <p>Copyright &copy; 2023 Dibuat dengan ❤️ oleh Agus</p>
             </motion.div>
 
             <motion.div
