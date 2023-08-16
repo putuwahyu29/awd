@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const ProjectBanner = () => {
   return (
@@ -31,8 +32,7 @@ const ProjectBanner = () => {
               <h2 className="text-black dark:text-white text-3xl xl:text-sectiontitle4 font-bold mb-4 w-11/12">
                 Lihat Proyek Lainnya
               </h2>
-              <p>
-              </p>
+              <p></p>
             </motion.div>
             <motion.div
               variants={{
@@ -60,7 +60,7 @@ const ProjectBanner = () => {
                   alt="Saly"
                   className="hidden xl:block"
                 />
-                <a
+                <Link
                   href="/project"
                   className="inline-flex items-center gap-2.5 font-medium text-white dark:text-black bg-black dark:bg-white rounded-full py-3 px-6 hover:opacity-90"
                 >
@@ -79,7 +79,7 @@ const ProjectBanner = () => {
                     alt="Arrow"
                     className="hidden dark:block"
                   />
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>
