@@ -1,4 +1,4 @@
-import { previewSecretId, readToken } from "../../../../env";
+import { previewSecretId, readToken } from "env";
 import { getClient } from "lib/client";
 import { resolveHref } from "lib/links";
 import { draftMode } from "next/headers";
