@@ -4,8 +4,14 @@
 
 import { visionTool } from "@sanity/vision";
 import { apiVersion, dataset, projectId, previewSecretId } from "./env";
+import {
+  dashboardTool,
+  projectUsersWidget,
+  projectInfoWidget,
+} from "@sanity/dashboard";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
+import { codeInput } from "@sanity/code-input";
 import { vercelDeployTool } from "sanity-plugin-vercel-deploy";
 import Iframe, {
   defineUrlResolver,
@@ -16,6 +22,7 @@ import { schema } from "./schema";
 import Logo from "@/app/components/SanityStudio/Logo";
 import { pageStructure, singletonPlugin } from "plugins/settings";
 import setting from "schemas/singleton/setting";
+import { media } from "sanity-plugin-media";
 
 export const PREVIEWABLE_DOCUMENT_TYPES = [
   schema.types.find((t) => t.name === "post")?.name || "",
@@ -79,6 +86,11 @@ export default defineConfig({
     visionTool({ defaultApiVersion: apiVersion }),
     vercelDeployTool(),
     singletonPlugin([setting.name]),
+    codeInput(),
+    media(),
+    dashboardTool({
+      widgets: [projectInfoWidget(), projectUsersWidget()],
+    }),
   ],
   studio: {
     components: {

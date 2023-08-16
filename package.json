@@ -12,6 +12,8 @@
     "@heroicons/react": "^2.0.18",
     "@portabletext/react": "^3.0.4",
     "@sanity/client": "^6.4.5",
+    "@sanity/code-input": "^4.1.1",
+    "@sanity/dashboard": "^3.1.5",
     "@sanity/image-url": "^1.0.2",
     "@sanity/preview-kit": "^2.4.12",
     "@sanity/vision": "^3.15.0",
@@ -27,15 +29,17 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-portable-text": "^0.6.0",
+    "react-refractor": "^2.1.7",
     "sanity": "^3.15.0",
     "sanity-plugin-iframe-pane": "^2.5.4",
+    "sanity-plugin-media": "^2.2.2",
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "sharp": "^0.32.4",
-    "styled-components": "5.2",
     "swiper": "^10.1.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/refractor": "^3.0.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3"

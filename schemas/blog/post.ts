@@ -67,9 +67,29 @@ export default defineType({
     }),
     defineField({
       name: "body",
-      title: "Isi Postingan",
-      type: "blockContent",
+      type: "array",
+      title: "Isi",
       validation: (Rule) => Rule.required(),
+      of: [
+        {
+          type: "block",
+        },
+        {
+          type: "image",
+        },
+        {
+          type: "code",
+          options: {
+            languageAlternatives: [
+              { title: "jsx", value: "jsx" },
+              { title: "tsx", value: "tsx" },
+              { title: "css", value: "css" },
+              { title: "bash", value: "bash" },
+              { title: "php", value: "php" },
+            ],
+          },
+        },
+      ],
     }),
   ],
 

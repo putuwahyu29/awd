@@ -1,12 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import urlFor from "lib/urlFor";
+import Refractor from "react-refractor";
+import "../../prism-solarizedlight.css";
+
+Refractor.registerLanguage(require("refractor/lang/jsx"));
+Refractor.registerLanguage(require("refractor/lang/tsx"));
+Refractor.registerLanguage(require("refractor/lang/css"));
+Refractor.registerLanguage(require("refractor/lang/bash"));
+Refractor.registerLanguage(require("refractor/lang/php"));
 
 export const RichText = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative m-10 mx-auto h-96 w-full">
+        <div className="relative mx-auto h-96 w-full">
           <Image
             className="object-contain"
             src={urlFor(value).url()}
@@ -16,6 +24,17 @@ export const RichText = {
         </div>
       );
     },
+    code: ({ value }: any) => (
+      <div className="flex flex-wrap overflow-x-auto">
+        <Refractor
+          className="rounded-md p-5 overflow-x-auto w-full"
+          language={value.language}
+          value={value.code}
+          markers={value.highlightedLines}
+          inline={false}
+        />
+      </div>
+    ),
   },
   list: {
     bullet: ({ children }: any) => (
