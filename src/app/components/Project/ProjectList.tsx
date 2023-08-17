@@ -94,7 +94,7 @@ function ProjectList({ projects, dict }: Props) {
 
                       <p className="inline-flex">
                         <CalendarDaysIcon className="h-6 w-6 mr-2" />
-                        {new Date(project._createdAt).toLocaleDateString(
+                        {new Date(project._updatedAt).toLocaleDateString(
                           dict.dateLocale,
                           {
                             day: "numeric",

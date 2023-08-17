@@ -79,7 +79,9 @@ function BlogList({ posts, dict }: Props) {
                     <div className="px-4">
                       {post.categories.slice(0, 2).map((category) => (
                         <div key={category._id} className="inline-flex">
-                          <Link href={`/${dict.lang}/category/${category.slug.current}`}>
+                          <Link
+                            href={`/${dict.lang}/category/${category.slug.current}`}
+                          >
                             <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
                               #{category.title}
                             </span>
@@ -98,7 +100,7 @@ function BlogList({ posts, dict }: Props) {
                         </div>
                         <div className="inline-flex">
                           <CalendarDaysIcon className="h-6 w-6 mr-2" />
-                          {new Date(post._createdAt).toLocaleDateString(
+                          {new Date(post._updatedAt).toLocaleDateString(
                             dict.dateLocale,
                             {
                               day: "numeric",

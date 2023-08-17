@@ -33,7 +33,7 @@ export default async function HomePage({ params: { lang } }: Props) {
     linkPreview,
     linkSource,
     technologies[]->
-  } | order(_createdAt desc)`,
+  } | order(_updatedAt desc)`,
     { lang }
   );
 
@@ -46,7 +46,7 @@ export default async function HomePage({ params: { lang } }: Props) {
       skillSection,
       certificateSection,
       contactSection
-    }| order(_createdAt desc)`
+    }| order(_updatedAt desc)`
   );
 
   const readySettings = settings.length > 0 ? true : false;

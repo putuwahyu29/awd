@@ -91,7 +91,7 @@ async function SingleBlogPage({ params: { slug, lang } }: Props) {
                   <li>
                     <span className="text-black dark:text-white">
                       {dict.oneBlog.updatedAt}:{" "}
-                      {new Date(post._createdAt).toLocaleDateString(
+                      {new Date(post._updatedAt).toLocaleDateString(
                         dict.dateLocale,
                         {
                           day: "numeric",

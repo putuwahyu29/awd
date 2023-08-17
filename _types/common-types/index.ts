@@ -1,6 +1,6 @@
 declare module "common-types" {
   type Base = {
-    _createdAt: string;
+    _updatedAt: string;
     _id: string;
     _rev: string;
     _type: string;
