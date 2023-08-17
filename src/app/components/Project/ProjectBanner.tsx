@@ -4,7 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const ProjectBanner = () => {
+type Props = {
+  dict: any;
+};
+
+const ProjectBanner = ({ dict }: Props) => {
   return (
     <>
       {/* <!-- ===== ProjectBanner Start ===== --> */}
@@ -30,7 +34,7 @@ const ProjectBanner = () => {
               className="animate_left md:w-[70%] lg:w-1/2"
             >
               <h2 className="text-black dark:text-white text-3xl xl:text-sectiontitle4 font-bold mb-4 w-11/12">
-                Lihat Proyek Lainnya
+                {dict.project.bannerTitle}
               </h2>
               <p></p>
             </motion.div>
@@ -56,26 +60,26 @@ const ProjectBanner = () => {
                 <Image
                   width={299}
                   height={299}
-                  src="./images/shape/shape-06.svg"
+                  src="/images/shape/shape-06.svg"
                   alt="Saly"
                   className="hidden xl:block"
                 />
                 <Link
-                  href="/project"
+                  href={`/${dict.lang}/project`}
                   className="inline-flex items-center gap-2.5 font-medium text-white dark:text-black bg-black dark:bg-white rounded-full py-3 px-6 hover:opacity-90"
                 >
-                  Selengkapnya
+                  {dict.project.bannerButton}
                   <Image
                     width={20}
                     height={20}
-                    src="./images/icon/icon-arrow-dark.svg"
+                    src="/images/icon/icon-arrow-dark.svg"
                     alt="Arrow"
                     className="dark:hidden"
                   />
                   <Image
                     width={20}
                     height={20}
-                    src="./images/icon/icon-arrow-light.svg"
+                    src="/images/icon/icon-arrow-light.svg"
                     alt="Arrow"
                     className="hidden dark:block"
                   />

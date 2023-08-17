@@ -23,6 +23,7 @@ import Logo from "@/app/components/SanityStudio/Logo";
 import { pageStructure, singletonPlugin } from "plugins/settings";
 import setting from "schemas/singleton/setting";
 import { media } from "sanity-plugin-media";
+import { documentInternationalization } from "@sanity/document-internationalization";
 
 export const PREVIEWABLE_DOCUMENT_TYPES = [
   schema.types.find((t) => t.name === "post")?.name || "",
@@ -55,6 +56,9 @@ export default defineConfig({
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
+    dashboardTool({
+      widgets: [projectInfoWidget(), projectUsersWidget()],
+    }),
     deskTool({
       structure: pageStructure([setting]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
@@ -75,26 +79,46 @@ export default defineConfig({
         return null;
       },
     }),
+    visionTool({ defaultApiVersion: apiVersion }),
+    media(),
+    vercelDeployTool(),
     previewUrl({
       base: PREVIEW_BASE_URL,
       requiresSlug: PREVIEWABLE_DOCUMENT_TYPES_REQUIRING_SLUGS,
       urlSecretId: previewSecretId,
       matchTypes: PREVIEWABLE_DOCUMENT_TYPES,
     }),
-    // Vision is a tool that lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: apiVersion }),
-    vercelDeployTool(),
     singletonPlugin([setting.name]),
     codeInput(),
-    media(),
-    dashboardTool({
-      widgets: [projectInfoWidget(), projectUsersWidget()],
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        { id: "id", title: "Indonesia" },
+        { id: "en", title: "English" },
+      ],
+      schemaTypes: ["post", "project"],
     }),
   ],
   studio: {
     components: {
       logo: Logo,
     },
+  },
+  auth: {
+    redirectOnSingle: false,
+    mode: "replace",
+    providers: [
+      {
+        name: "github",
+        title: "GitHub",
+        url: "https://api.sanity.io/v1/auth/login/github",
+      },
+      {
+        name: "google",
+        title: "Google",
+        url: "https://api.sanity.io/v1/auth/login/google",
+      },
+    ],
+    loginMethod: "dual",
   },
 });

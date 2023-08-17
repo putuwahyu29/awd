@@ -4,22 +4,33 @@ import { getClient } from "lib/client";
 import SectionHeader from "@/app/components/Common/SectionHeader";
 import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
-export const fetchCache = 'force-no-store';
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Awd - Semua Artikel",
+  title: "Awd - Hasil Filter Artikel",
   description: "Awd",
 };
 
-const BlogPage = async () => {
+type Props = {
+  params: {
+    slug: string;
+    lang: string;
+  };
+};
+
+const ListPostByCategory = async ({ params: { slug, lang } }: Props) => {
+  const dict = await getDictionary(lang);
+
   const posts = await getClient().fetch(
-    groq`*[_type == 'post'] {
-    ...,
-    author->,
-    categories[]->
-  } | order(_updatedAt desc)`
+    groq`*[_type == 'post' && (count((categories[]->slug.current)[@ in [$slug]]) > 0) && language == $lang] {
+        ...,
+        author->,
+        categories[]->,
+      } | order(_updatedAt desc)`,
+    { slug, lang }
   );
   return (
     <>
@@ -29,17 +40,17 @@ const BlogPage = async () => {
         <div className="animate_top text-center mx-auto">
           <SectionHeader
             headerInfo={{
-              title: `ARTIKEL`,
-              subtitle: `Semua Artikel`,
-              description: `Terdapat berbagai macam artikel yang dapat dibaca, mulai dari artikel tentang teknologi, tutorial, dan lain-lain.`,
+              title: `${dict.filterBlog.title}`,
+              subtitle: `${dict.filterBlog.subtitle}`,
+              description: `${dict.filterBlog.description} : ${slug}`,
             }}
           />
         </div>
         {/* <!-- Section Title End --> */}
       </div>
-      <BlogList posts={posts} />
+      <BlogList posts={posts} dict={dict} />
     </>
   );
 };
 
-export default BlogPage;
+export default ListPostByCategory;

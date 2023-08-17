@@ -4,23 +4,32 @@ import { groq } from "next-sanity";
 import { getClient } from "lib/client";
 import SectionHeader from "@/app/components/Common/SectionHeader";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
-
+import { getDictionary } from "@/app/[lang]/dictionaries";
 export const revalidate = 60;
-export const fetchCache = 'force-no-store';
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
   title: "Awd - Semua Proyek",
   description: "Awd",
 };
 
-const ProjectPage = async () => {
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+const ProjectPage = async ({ params: { lang } }: Props) => {
+  const dict = await getDictionary(lang);
   const projects = await getClient().fetch(
-    groq`*[_type == 'project'] {
+    groq`*[_type == 'project' && language == $lang] {
     ...,
     linkPreview,
     linkSource,
-    technologies[]->
-  } | order(_updatedAt desc)`
+    technologies[]->,
+    language,
+  } | order(_updatedAt desc)`,
+    { lang }
   );
 
   return (
@@ -31,15 +40,15 @@ const ProjectPage = async () => {
         <div className="animate_top text-center mx-auto">
           <SectionHeader
             headerInfo={{
-              title: `PROYEK`,
-              subtitle: `Semua Proyek`,
-              description: `Berikut merupakan proyek proyek website yang pernah saya buat dengan berbagai bahasa pemograman seperti R, Java dan PHP. Kemudian dengan framework Codeigniter, Laravel, Springboot, R Shiny dan lainnya`,
+              title: `${dict.allProject.title}`,
+              subtitle: `${dict.allProject.subtitle}`,
+              description: `${dict.allProject.description}`,
             }}
           />
         </div>
         {/* <!-- Section Title End --> */}
       </div>
-      <ProjectList projects={projects} />
+      <ProjectList projects={projects} dict={dict} />
     </>
   );
 };

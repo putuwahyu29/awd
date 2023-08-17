@@ -81,15 +81,22 @@ export default defineType({
           type: "code",
           options: {
             languageAlternatives: [
-              { title: "JavaScript JSX", value: "jsx" },
-              { title: "TypeScript TSX", value: "tsx" },
-              { title: "CSS", value: "css" },
-              { title: "Bash", value: "bash" },
-              { title: "PHP", value: "php" },
+              { title: "jsx", value: "jsx" },
+              { title: "tsx", value: "tsx" },
+              { title: "css", value: "css" },
+              { title: "bash", value: "bash" },
+              { title: "php", value: "php" },
             ],
           },
         },
       ],
+    }),
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
     }),
   ],
 

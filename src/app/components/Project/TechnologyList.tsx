@@ -4,9 +4,10 @@ import Link from "next/link";
 
 type Props = {
   technologies: Technology[];
+  dict: any;
 };
 
-function TechnologyList({ technologies }: Props) {
+function TechnologyList({ technologies, dict }: Props) {
   return (
     <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0 pt-35">
       {/* <!-- Section Title Start --> */}
@@ -15,7 +16,7 @@ function TechnologyList({ technologies }: Props) {
           {technologies.map((technology: Technology) => (
             <div key={technology._id} className="inline-flex mx-2">
               <Link
-                href={`/technology/${technology.slug.current}`}
+                href={`/${dict.lang}/technology/${technology.slug.current}`}
                 className="bg-zumthor dark:bg-blacksection dark:border dark:border-strokedark rounded-full py-1.5 px-4.5 mb-4"
               >
                 <h4 className="font-medium text-sectiontitle text-black dark:text-white">

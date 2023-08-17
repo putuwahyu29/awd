@@ -1,31 +1,33 @@
-import ProjectList from "@/app/components/Project/ProjectList";
+import BlogList from "@/app/components/Blog/BlogList";
 import { groq } from "next-sanity";
 import { getClient } from "lib/client";
 import SectionHeader from "@/app/components/Common/SectionHeader";
 import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
-export const fetchCache = 'force-no-store';
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Awd - Hasil Filter Teknologi",
+  title: "Awd - Semua Artikel",
   description: "Awd",
 };
 
 type Props = {
   params: {
-    slug: string;
+    lang: string;
   };
 };
 
-const ListProjectByTechnology = async ({ params: { slug } }: Props) => {
-  const projects = await getClient().fetch(
-    groq`*[_type == 'project' && (count((technologies[]->slug.current)[@ in [$slug]]) > 0)] {
-        ...,
-        technologies[]->,
-      } | order(_updatedAt desc)`,
-    { slug }
+const BlogPage = async ({ params: { lang } }: Props) => {
+  const dict = await getDictionary(lang);
+  const posts = await getClient().fetch(
+    groq`*[_type == 'post' && language == $lang] {
+    ...,
+    author->,
+    categories[]->
+  } | order(_updatedAt desc)`,{ lang}
   );
   return (
     <>
@@ -35,17 +37,17 @@ const ListProjectByTechnology = async ({ params: { slug } }: Props) => {
         <div className="animate_top text-center mx-auto">
           <SectionHeader
             headerInfo={{
-              title: `TEKNOLOGI`,
-              subtitle: `Filter Teknologi`,
-              description: `Teknologi: ${slug}`,
+              title: `${dict.allBlog.title}`,
+              subtitle: `${dict.allBlog.subtitle}`,
+              description: `${dict.allBlog.description}`,
             }}
           />
         </div>
         {/* <!-- Section Title End --> */}
       </div>
-      <ProjectList projects={projects} />
+      <BlogList posts={posts} dict={dict} />
     </>
   );
 };
 
-export default ListProjectByTechnology;
+export default BlogPage;

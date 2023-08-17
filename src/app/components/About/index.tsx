@@ -1,10 +1,13 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
-const About = () => {
+type Props = {
+  dict: any;
+};
+
+const About = ({ dict }: Props) => {
   return (
     <>
       {/* <!-- ===== About Start ===== --> */}
@@ -32,11 +35,7 @@ const About = () => {
               viewport={{ once: true }}
               className="text-black dark:text-white mb-6"
             >
-              <p>
-                Saya merupakan seorang mahasiswa di salah satu perguruan tinggi
-                Indonesia. Program studi saya yaitu Komputasi Statistik dengan
-                peminatan Sistem Informasi.
-              </p>
+              <p>{dict.about.subtitle}</p>
             </motion.div>
             <motion.div
               variants={{
@@ -57,7 +56,7 @@ const About = () => {
               className="animate_right md:w-1/2"
             >
               <h2 className="relative font-bold text-black dark:text-white text-3xl xl:text-hero mb-6">
-                Tentang Saya
+                {dict.about.title}
               </h2>
             </motion.div>
           </div>

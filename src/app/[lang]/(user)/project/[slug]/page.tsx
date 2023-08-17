@@ -8,6 +8,7 @@ import { RichText } from "@/app/components/Common/RichText";
 import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
 import SidebarProject from "@/app/components/Project/SidebarProject";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
 export const fetchCache = "force-no-store";
@@ -20,18 +21,20 @@ export const metadata: Metadata = {
 type Props = {
   params: {
     slug: string;
+    lang: string;
   };
 };
 
-async function SingleBlogPage({ params: { slug } }: Props) {
+async function SingleBlogPage({ params: { slug, lang } }: Props) {
+  const dict = await getDictionary(lang);
   const project: Project = await getClient().fetch(
-    groq`*[_type == 'project' && slug.current == $slug][0]{
+    groq`*[_type == 'project' && slug.current == $slug && language == $lang][0]{
       ...,
       author->,
       technologies[]->
     }
   `,
-    { slug }
+    { slug, lang }
   );
 
   const tags = project.technologies;
@@ -39,17 +42,16 @@ async function SingleBlogPage({ params: { slug } }: Props) {
   const tagsList = tags.map((tag) => tag.slug.current).join(",");
 
   const projects = await getClient().fetch(
-    groq`*[_type == 'project'&& (count((technologies[]->slug.current)[@ in [$tagsList]]) > 0)] {
+    groq`*[_type == 'project'&& (count((technologies[]->slug.current)[@ in [$tagsList]]) > 0) && language == $lang] {
     ...,
     technologies[]->
   } | order(_updatedAt desc)`,
-    { tagsList }
+    { tagsList, lang }
   );
 
   return (
     <>
       <PreviewNotif />
-      <title>{`Proyek Detail - Awd`}</title>
       <section className="pt-35 lg:pt-45 xl:pt-50 pb-20 lg:pb-25 xl:pb-30">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           <div className="flex flex-col lg:flex-row gap-7.5 xl:gap-12.5">
@@ -63,12 +65,12 @@ async function SingleBlogPage({ params: { slug } }: Props) {
                   <PortableText value={project.body} components={RichText} />
                 </div>
 
-                <ShareProject tags={tags} slug={slug} />
+                <ShareProject tags={tags} slug={slug} dict={dict} />
               </div>
             </div>
             <div className="md:w-1/2 lg:w-[32%]">
-              <SidebarProject project={project} />
-              <RelatedProject projects={projects} />
+              <SidebarProject project={project} dict={dict} />
+              <RelatedProject projects={projects} dict={dict} />
             </div>
           </div>
         </div>

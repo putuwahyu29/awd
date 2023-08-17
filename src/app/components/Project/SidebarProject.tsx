@@ -10,9 +10,10 @@ import {
 
 type Props = {
   project: Project;
+  dict: any;
 };
 
-function SidebarProject({ project }: Props) {
+function SidebarProject({ project, dict }: Props) {
   return (
     <>
       <div className="animate_top rounded-md shadow-solid-13 bg-white dark:bg-blacksection border border-stroke dark:border-strokedark p-6 mb-10">
@@ -32,7 +33,7 @@ function SidebarProject({ project }: Props) {
               className="flex justify-center p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300 mt-5"
             >
               <ArrowTopRightOnSquareIcon className="h-6 w-6 mr-2" />
-              Pratinjau
+              {dict.oneProject.buttonPreview}
             </Link>
           </>
         ) : (
@@ -45,7 +46,7 @@ function SidebarProject({ project }: Props) {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap ">
                     <div className="flex justify-between">
-                      <div>Teknologi</div>
+                      <div>{dict.oneProject.technology}</div>
                       <div>
                         {project.technologies.slice(0, 2).map((technology) => (
                           <div key={technology._id} className="inline-flex">
@@ -60,7 +61,7 @@ function SidebarProject({ project }: Props) {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap ">
                     <div className="flex justify-between">
-                      <div>Jenis</div>
+                      <div>{dict.oneProject.type}</div>
                       <div>{project.type}</div>
                     </div>
                   </td>
@@ -68,7 +69,7 @@ function SidebarProject({ project }: Props) {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap ">
                     <div className="flex justify-between">
-                      <div>Kontributor</div>
+                      <div>{dict.oneProject.contributor}</div>
                       <div>{project.author.name}</div>
                     </div>
                   </td>
@@ -76,7 +77,7 @@ function SidebarProject({ project }: Props) {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap ">
                     <div className="flex justify-between">
-                      <div>Diperbarui</div>
+                      <div>{dict.oneProject.updatedAt}</div>
                       <div>
                         {new Date(project._createdAt).toLocaleDateString(
                           "id-ID",
@@ -102,7 +103,7 @@ function SidebarProject({ project }: Props) {
               className="flex justify-center p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300 mt-5"
             >
               <ArrowDownTrayIcon className="h-6 w-6 mr-2" />
-              Repositori
+              {dict.oneProject.buttonCode}
             </Link>
           </>
         ) : (

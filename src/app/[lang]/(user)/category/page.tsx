@@ -1,19 +1,26 @@
 import SectionHeader from "@/app/components/Common/SectionHeader";
-import type { Category } from "common-types";
 import { getClient } from "lib/client";
 import { Metadata } from "next";
 import { groq } from "next-sanity";
 import CategoryList from "@/app/components/Blog/CategoryList";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
-export const fetchCache = 'force-no-store';
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
   title: "Awd - Semua Kategori",
   description: "Awd",
 };
 
-const CategoryPage = async () => {
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+const CategoryPage = async ({ params: { lang } }: Props) => {
+  const dict = await getDictionary(lang);
   const categories = await getClient().fetch(
     groq`*[_type == 'category'] {
         ...,
@@ -27,15 +34,15 @@ const CategoryPage = async () => {
           <div className="animate_top text-center mx-auto">
             <SectionHeader
               headerInfo={{
-                title: `KATEGORI`,
-                subtitle: `Semua kategori`,
-                description: `Semua kategori yang ada`,
+                title: `${dict.allCategory.title}`,
+                subtitle: `${dict.allCategory.subtitle}`,
+                description: `${dict.allCategory.description}`,
               }}
             />
           </div>
           {/* <!-- Section Title End --> */}
         </div>
-        <CategoryList categories={categories} />
+        <CategoryList categories={categories} dict={dict} />
       </section>
     </>
   );

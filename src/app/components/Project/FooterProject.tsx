@@ -5,16 +5,19 @@ import Link from "next/link";
 type Props = {
   tags: Technology[];
   slug: string;
+  dict: any;
 };
 
-function FooterProject({ tags, slug }: Props) {
+function FooterProject({ tags, slug, dict }: Props) {
   const url = `https://awd.my.id/project/${slug}`;
   return (
     <>
       <div className="flex flex-wrap gap-4 md:gap-0 md:justify-between md:items-center mt-11">
         <ul className="flex items-center gap-6">
           <li>
-            <p className="text-black dark:text-white">Bagikan ke:</p>
+            <p className="text-black dark:text-white">
+              {dict.oneProject.share} :{" "}
+            </p>
           </li>
           <li>
             <a href={`https://www.facebook.com/sharer.php?u=${url}`}>

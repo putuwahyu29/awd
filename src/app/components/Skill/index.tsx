@@ -4,7 +4,11 @@ import SectionHeader from "../Common/SectionHeader";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const Skill = () => {
+type Props = {
+  dict: any;
+};
+
+const Skill = ({ dict }: Props) => {
   return (
     <>
       <section id="kemampuan" className="py-20 xl:py-25  overflow-hidden">
@@ -12,9 +16,9 @@ const Skill = () => {
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
-              title: `KEMAMPUAN`,
-              subtitle: `Bahasa Yang Dikuasai.`,
-              description: `Bahasa markup, pemograman yang pernah saya pelajari dan sudah menguasi yaitu Python yang biasanya saya menggunakan untuk pengolahan data. Kemudian HTML dan CSS untuk membangun kerangka dasar website. Selanjutnta Javascript yang bisa digunakan sebagai frontend maupun fullstack dengan Node.JS. Selain itu Java digunakan untuk membuat aplikasi desktop, website maupun aplikasi android. Selain Python, saya juga menggunakan R untuk pengolahan data.`,
+              title: `${dict.skill.title}`,
+              subtitle: `${dict.skill.subtitle}`,
+              description: `${dict.skill.description}`,
             }}
           />
 
@@ -62,7 +66,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/python.svg"
+                  src="/images/brand/python.svg"
                   alt="Brand"
                 />
               </div>
@@ -109,7 +113,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/php.svg"
+                  src="/images/brand/php.svg"
                   alt="Brand"
                 />
               </div>
@@ -158,7 +162,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/dart.svg"
+                  src="/images/brand/dart.svg"
                   alt="Brand"
                 />
               </div>
@@ -226,7 +230,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/r.svg"
+                  src="/images/brand/r.svg"
                   alt="Brand"
                 />
               </div>
@@ -275,7 +279,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/java.svg"
+                  src="/images/brand/java.svg"
                   alt="Brand"
                 />
               </div>
@@ -324,7 +328,7 @@ const Skill = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="./images/brand/c.svg"
+                  src="/images/brand/c.svg"
                   alt="Brand"
                 />
               </div>

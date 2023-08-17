@@ -2,13 +2,21 @@ import PreviewNotif from "@/app/components/Common/PreviewNotif";
 import SectionHeader from "@/app/components/Common/SectionHeader";
 import Contact from "@/app/components/Contact";
 import { Metadata } from "next";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const metadata: Metadata = {
   title: "Awd - Tentang Saya",
   description: "Awd",
 };
 
-const AboutPage = () => {
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+const AboutPage = async ({ params: { lang } }: Props) => {
+  const dict = await getDictionary(lang);
   return (
     <>
       <PreviewNotif />
@@ -24,7 +32,7 @@ const AboutPage = () => {
           />
         </div>
         {/* <!-- Section Title End --> */}
-        <Contact />
+        <Contact dict={dict} />
       </div>
     </>
   );

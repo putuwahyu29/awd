@@ -1,0 +1,95 @@
+{
+  "lang": "id",
+  "dateLocale": "id-ID",
+  "hero": {
+    "title": "Halo Semua👋, Perkenalkan nama saya",
+    "subtitle": "Selamat datang di halaman web portofolio milik agus wahyu",
+    "button": "Hubungi Saya"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "subtitle": "Saya merupakan seorang mahasiswa di salah satu perguruan tinggi Indonesia. Program studi saya yaitu Komputasi Statistik dengan peminatan Sistem Informasi."
+  },
+  "project": {
+    "title": "Proyek",
+    "subtitle": "Proyek Terbaru",
+    "description": "Berikut merupakan proyek proyek website yang pernah saya buat dengan berbagai bahasa pemograman seperti R, Java dan PHP. Kemudian dengan framework Codeigniter, Laravel, Springboot, R Shiny dan lainnya",
+    "button": "Detail Proyek",
+    "bannerTitle": "Lihat Proyek Lainnya",
+    "bannerButton": "Selengkapnya"
+  },
+  "skill": {
+    "title": "Kemampuan",
+    "subtitle": "Bahasa Yang Dikuasai.",
+    "description": "Bahasa markup, pemograman yang pernah saya pelajari dan sudah menguasi yaitu Python yang biasanya saya menggunakan untuk pengolahan data. Kemudian HTML dan CSS untuk membangun kerangka dasar website. Selanjutnta Javascript yang bisa digunakan sebagai frontend maupun fullstack dengan Node.JS. Selain itu Java digunakan untuk membuat aplikasi desktop, website maupun aplikasi android. Selain Python, saya juga menggunakan R untuk pengolahan data."
+  },
+  "certificate": {
+    "title": "Sertifikat",
+    "subtitle": "Sertifikat yang pernah saya dapatkan",
+    "description": "Berikut merupakan sertifikat yang pernah saya dapatkan dari berbagai platform pembelajaran online seperti Dicoding, Progate, dan lainnya. Sertifikat yang saya dapatkan berupa sertifikat yang dikeluarkan oleh perusahaan atau platform pembelajaran online tersebut."
+  },
+  "contact": {
+    "title": "Kirim Pesan",
+    "name": "Nama Lengkap",
+    "email": "Alamat Email",
+    "subject": "Subjek",
+    "phoneNumber": "Nomor Telepon",
+    "message": "Pesan",
+    "checklist": "Dengan mengklik Kotak Centang, Anda setuju untuk menggunakan ketentuan Formulir kami dan menyetujui penggunaan cookie di browser.",
+    "button": "Kirim",
+    "findMe": "Temukan Saya di",
+    "address": "Alamat"
+  },
+  "allBlog": {
+    "title": "Artikel",
+    "subtitle": "Semua Artikel",
+    "description": "Terdapat berbagai macam artikel yang dapat dibaca, mulai dari artikel tentang teknologi, tutorial, dan lain-lain.",
+    "button": "Baca Selengkapnya",
+    "noShow": "Tidak ada artikel"
+  },
+  "allProject": {
+    "title": "Proyek",
+    "subtitle": "Semua Proyek",
+    "description": "Berikut merupakan proyek proyek website yang pernah saya buat dengan berbagai bahasa pemograman seperti R, Java dan PHP. Kemudian dengan framework Codeigniter, Laravel, Springboot, R Shiny dan lainnya",
+    "button": "Detail Proyek",
+    "noShow": "Tidak ada proyek"
+  },
+  "oneProject": {
+    "buttonPreview": "Pratinjau",
+    "buttonCode": "Repositori",
+    "share": "Bagikan Ke",
+    "relatedProject": "Proyek Serupa",
+    "technology": "Teknologi",
+    "type": "Jenis",
+    "contributor": "Kontributor",
+    "updatedAt": "Diperbarui "
+  },
+  "oneBlog": {
+    "author": "Penulis",
+    "updatedAt": "Diterbitkan pada",
+    "share": "Bagikan Ke",
+    "relatedBlog": "Artikel Terkait",
+    "allCategory": "Semua Kategori",
+    "searchButton": "Cari Artikel"
+  },
+  "allCategory": {
+    "title": "Kategori",
+    "subtitle": "Semua Kategori",
+    "description": "Semua kategori yang ada"
+  },
+  "allTechnology": {
+    "title": "Teknologi",
+    "subtitle": "Semua Teknologi",
+    "description": "Semua teknologi yang ada"
+  },
+  "filterBlog": {
+    "title": "Artikel",
+    "subtitle": "Filter Artikel",
+    "description": "Kategori"
+  },
+  "filterProject": {
+    "title": "Proyek",
+    "subtitle": "Filter Proyek",
+    "description": "Teknologi"
+  }
+}

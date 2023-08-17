@@ -7,27 +7,35 @@ import Project from "@/app/components/Project";
 import Certificate from "@/app/components/Certificate";
 import { groq } from "next-sanity";
 import { getClient } from "lib/client";
-import PreviewNotif from "../components/Common/PreviewNotif";
+import PreviewNotif from "@/app/components/Common/PreviewNotif";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
-export const fetchCache = 'force-no-store'
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
   title: "Awd - Beranda",
   description: "Awd",
 };
 
-export default async function HomePage() {
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+export default async function HomePage({ params: { lang } }: Props) {
+  const dict = await getDictionary(lang);
   const certificates = await getClient().fetch(groq`*[_type == 'certificate']`);
   const projects = await getClient().fetch(
-    groq`*[_type == 'project'] {
+    groq`*[_type == 'project' && language == $lang] {
     ...,
     linkPreview,
     linkSource,
     technologies[]->
-  } | order(_createdAt desc)`
+  } | order(_createdAt desc)`,
+    { lang }
   );
-
 
   const settings = await getClient().fetch(
     groq`*[_type == 'settings']{
@@ -48,17 +56,19 @@ export default async function HomePage() {
       <PreviewNotif />
       {readySettings ? (
         <div>
-          {settings[0].heroSection && <Hero />}
-          {settings[0].aboutSection && <About />}
-          {settings[0].projectSection && <Project projects={projects} />}
-          {settings[0].skillSection && <Skill />}
-          {settings[0].certificateSection && (
-            <Certificate certificates={certificates} />
+          {settings[0].heroSection && <Hero dict={dict} />}
+          {settings[0].aboutSection && <About dict={dict} />}
+          {settings[0].projectSection && (
+            <Project projects={projects} dict={dict} />
           )}
-          {settings[0].contactSection && <Contact />}
+          {settings[0].skillSection && <Skill dict={dict} />}
+          {settings[0].certificateSection && (
+            <Certificate certificates={certificates} dict={dict} />
+          )}
+          {settings[0].contactSection && <Contact dict={dict} />}
         </div>
       ) : (
-        <Hero />
+        <Hero dict={dict} />
       )}
     </main>
   );

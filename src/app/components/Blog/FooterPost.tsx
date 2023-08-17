@@ -5,16 +5,17 @@ import Link from "next/link";
 type Props = {
   tags: Category[];
   slug: string;
+  dict: any;
 };
 
-function FooterPost({ tags, slug }: Props) {
+function FooterPost({ tags, slug, dict }: Props) {
   const url = `https://awd.my.id/blog/${slug}`;
   return (
     <>
       <div className="flex flex-wrap gap-4 md:gap-0 md:justify-between md:items-center mt-11">
         <ul className="flex items-center gap-6">
           <li>
-            <p className="text-black dark:text-white">Bagikan ke:</p>
+            <p className="text-black dark:text-white">{dict.oneBlog.share} :</p>
           </li>
           <li>
             <a href={`https://www.facebook.com/sharer.php?u=${url}`}>

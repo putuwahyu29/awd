@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.4.0",
     "@heroicons/react": "^2.0.18",
     "@portabletext/react": "^3.0.4",
     "@sanity/client": "^6.4.5",
     "@sanity/code-input": "^4.1.1",
     "@sanity/dashboard": "^3.1.5",
+    "@sanity/document-internationalization": "^2.0.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/preview-kit": "^2.4.12",
     "@sanity/vision": "^3.15.0",
@@ -22,7 +24,9 @@
     "@types/react-dom": "18.2.7",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "flag-icons": "^6.10.0",
     "framer-motion": "^10.15.1",
+    "negotiator": "^0.6.3",
     "next": "13.4.13",
     "next-sanity": "^5.2.4",
     "next-themes": "^0.2.1",
@@ -35,10 +39,12 @@
     "sanity-plugin-media": "^2.2.2",
     "sanity-plugin-vercel-deploy": "^3.3.4",
     "sharp": "^0.32.4",
+    "styled-components": "^5.3.11",
     "swiper": "^10.1.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.1",
     "@types/refractor": "^3.0.2",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",

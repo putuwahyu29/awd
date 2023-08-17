@@ -11,6 +11,7 @@ import BlogCategoryList from "@/app/components/Blog/BlogCategoryList";
 import BlogSearch from "@/app/components/Blog/BlogSearch";
 import { Metadata } from "next";
 import PreviewNotif from "@/app/components/Common/PreviewNotif";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
 export const fetchCache = "force-no-store";
@@ -23,18 +24,20 @@ export const metadata: Metadata = {
 type Props = {
   params: {
     slug: string;
+    lang: string;
   };
 };
 
-async function SingleBlogPage({ params: { slug } }: Props) {
+async function SingleBlogPage({ params: { slug, lang } }: Props) {
+  const dict = await getDictionary(lang);
   const post: Post = await getClient().fetch(
-    groq`*[_type == 'post' && slug.current == $slug][0]{
+    groq`*[_type == 'post' && slug.current == $slug && language == $lang][0]{
       ...,
       author->,
       categories[]->,
     }
   `,
-    { slug }
+    { slug, lang }
   );
 
   const categories = await getClient().fetch(
@@ -49,12 +52,12 @@ async function SingleBlogPage({ params: { slug } }: Props) {
   const tagsList = tags.map((tag) => tag.slug.current).join(",");
 
   const posts = await getClient().fetch(
-    groq`*[_type == 'post'&& (count((categories[]->slug.current)[@ in [$tagsList]]) > 0)] {
+    groq`*[_type == 'post'&& (count((categories[]->slug.current)[@ in [$tagsList]]) > 0) && language == $lang] {
       ...,
       author->,
       categories[]->,
     } | order(_updatedAt desc)`,
-    { tagsList }
+    { tagsList, lang }
   );
   return (
     <>
@@ -82,17 +85,20 @@ async function SingleBlogPage({ params: { slug } }: Props) {
                 <ul className="flex flex-wrap gap-5 2xl:gap-7.5 mb-9">
                   <li>
                     <span className="text-black dark:text-white">
-                      Penulis: {post.author.name}
+                      {dict.oneBlog.author}: {post.author.name}
                     </span>{" "}
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Diterbitkan pada:{" "}
-                      {new Date(post._createdAt).toLocaleDateString("id-ID", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
+                      {dict.oneBlog.updatedAt}:{" "}
+                      {new Date(post._createdAt).toLocaleDateString(
+                        dict.dateLocale,
+                        {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        }
+                      )}
                     </span>{" "}
                   </li>
                 </ul>
@@ -101,13 +107,13 @@ async function SingleBlogPage({ params: { slug } }: Props) {
                   <PortableText value={post.body} components={RichText} />
                 </div>
 
-                <SharePost tags={tags} slug={slug} />
+                <SharePost tags={tags} slug={slug} dict={dict} />
               </div>
             </div>
             <div className="md:w-1/2 lg:w-[32%]">
               <BlogSearch />
-              <BlogCategoryList categories={categories} />
-              <RelatedPost posts={posts} />
+              <BlogCategoryList categories={categories} dict={dict} />
+              <RelatedPost posts={posts} dict={dict} />
             </div>
           </div>
         </div>

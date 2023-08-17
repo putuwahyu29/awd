@@ -12,9 +12,10 @@ import {
 
 type Props = {
   posts: Post[];
+  dict: any;
 };
 
-function BlogList({ posts }: Props) {
+function BlogList({ posts, dict }: Props) {
   return (
     <div>
       {/* <!-- ===== Blog Grid Start ===== --> */}
@@ -38,7 +39,7 @@ function BlogList({ posts }: Props) {
               transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <p className="text-center">Tidak Ada Artikel</p>
+              <p className="text-center">{dict.allBlog.noShow}</p>
             </motion.div>
           </h3>
         ) : (
@@ -65,7 +66,7 @@ function BlogList({ posts }: Props) {
                     className="animate_top bg-white dark:bg-blacksection rounded-lg shadow-solid-8 p-4 pb-9"
                   >
                     <Link
-                      href={`/blog/${post.slug.current}`}
+                      href={`/${dict.lang}/blog/${post.slug.current}`}
                       className="block relative aspect-[368/239]"
                     >
                       <Image
@@ -78,7 +79,7 @@ function BlogList({ posts }: Props) {
                     <div className="px-4">
                       {post.categories.slice(0, 2).map((category) => (
                         <div key={category._id} className="inline-flex">
-                          <Link href={`/category/${category.slug.current}`}>
+                          <Link href={`/${dict.lang}/category/${category.slug.current}`}>
                             <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
                               #{category.title}
                             </span>
@@ -86,7 +87,7 @@ function BlogList({ posts }: Props) {
                         </div>
                       ))}
                       <h4 className="font-medium text-lg xl:text-itemtitle2 text-black hover:text-primary dark:hover:text-primary dark:text-white my-3">
-                        <Link href={`/blog/${post.slug.current}`}>
+                        <Link href={`/${dict.lang}/blog/${post.slug.current}`}>
                           {`${post.title.slice(0, 40)}...`}
                         </Link>
                       </h4>
@@ -98,7 +99,7 @@ function BlogList({ posts }: Props) {
                         <div className="inline-flex">
                           <CalendarDaysIcon className="h-6 w-6 mr-2" />
                           {new Date(post._createdAt).toLocaleDateString(
-                            "id-ID",
+                            dict.dateLocale,
                             {
                               day: "numeric",
                               month: "long",
@@ -116,11 +117,11 @@ function BlogList({ posts }: Props) {
                       <div className="mt-5 flex justify-between">
                         <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300">
                           <Link
-                            href={`/blog/${post.slug.current}`}
+                            href={`/${dict.lang}/blog/${post.slug.current}`}
                             className="flex items-center"
                           >
                             <BookOpenIcon className="h-6 w-6 mr-2" />
-                            Baca Selengkapnya
+                            {dict.allBlog.button}
                           </Link>
                         </div>
                       </div>

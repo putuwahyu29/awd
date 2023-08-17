@@ -5,15 +5,21 @@ import Footer from "@/app/components/Footer";
 import Lines from "@/app/components/Lines";
 import ScrollToTop from "@/app/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
-import "../globals.css";
+import "@/app/globals.css";
+
+export async function generateStaticParams() {
+  return [{ lang: "id" }, { lang: "en" }];
+}
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={`dark:bg-black`}>
         <ThemeProvider
           enableSystem={true}
@@ -21,7 +27,7 @@ export default function RootLayout({
           defaultTheme="light"
         >
           <Lines />
-          <Header />
+          <Header lang={params.lang} />
           {children}
           <Footer />
           <ScrollToTop />

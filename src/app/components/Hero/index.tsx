@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+type Props = {
+  dict: any;
+};
 
-const Hero = () => {
+const Hero = ({ dict }: Props) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -21,7 +23,7 @@ const Hero = () => {
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
             <div className=" md:w-1/2">
               <h4 className="text-black dark:text-white text-lg font-medium mb-2">
-                Halo Semua👋, Perkenalkan nama saya
+                {dict.hero.title}
               </h4>
               <h1 className="text-primary text-3xl xl:text-hero font-bold mb-2 pr-16 ">
                 I Putu Agus Wahyu Dupayana
@@ -29,7 +31,7 @@ const Hero = () => {
               <h4 className="text-black dark:text-white text-lg font-medium mb-4.5">
                 Data Enginer & Software Developer
               </h4>
-              <p>Selamat datang di halaman web portofolio milik agus wahyu</p>
+              <p>{dict.hero.subtitle}</p>
 
               <div className="mt-10">
                 <button

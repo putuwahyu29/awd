@@ -5,16 +5,24 @@ import { getClient } from "lib/client";
 import { Metadata } from "next";
 import { groq } from "next-sanity";
 import TechnologyList from "@/app/components/Project/TechnologyList";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const revalidate = 60;
-export const fetchCache = 'force-no-store';
+export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
   title: "Awd - Semua Teknologi",
   description: "Awd",
 };
 
-const TechnologyPage = async () => {
+type Props = {
+  params: {
+    lang: string;
+  };
+};
+
+const TechnologyPage = async ({ params: { lang } }: Props) => {
+  const dict = await getDictionary(lang);
   const technologies = await getClient().fetch(
     groq`*[_type == 'technology'] {
         ...,
@@ -28,16 +36,16 @@ const TechnologyPage = async () => {
           <div className="animate_top text-center mx-auto">
             <SectionHeader
               headerInfo={{
-                title: `TEKNOLOGI`,
-                subtitle: `Semua teknologi`,
-                description: `Semua daftar teknologi yang ada.`,
+                title: `${dict.allTechnology.title}`,
+                subtitle: `${dict.allTechnology.subtitle}`,
+                description: `${dict.allTechnology.description}`,
               }}
             />
           </div>
           {/* <!-- Section Title End --> */}
         </div>
 
-        <TechnologyList technologies={technologies} />
+        <TechnologyList technologies={technologies} dict={dict} />
       </section>
     </>
   );

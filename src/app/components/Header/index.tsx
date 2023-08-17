@@ -2,11 +2,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
-const Header = () => {
+type Props = {
+  lang: string;
+};
+
+const Header = ({ lang }: Props) => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
@@ -150,7 +154,17 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-6 mt-7 lg:mt-0">
+            {lang === "en" ? (
+              <Link href="/id">
+                <span className="fi fi-id"></span>
+              </Link>
+            ) : (
+              <Link href="/en">
+                <span className="fi fi-us"></span>
+              </Link>
+            )}
             <ThemeToggler />
+
             <Link
               href="#"
               className="flex items-center justify-center bg-primary hover:bg-primaryho ease-in-out duration-300 text-white text-regular rounded-full py-2.5 px-7.5"

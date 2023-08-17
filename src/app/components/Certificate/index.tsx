@@ -15,9 +15,10 @@ import type { Certificate } from "common-types";
 import urlFor from "lib/urlFor";
 type Props = {
   certificates: Certificate[];
+  dict: any;
 };
 
-const Certificate = ({ certificates }: Props) => {
+const Certificate = ({ certificates, dict }: Props) => {
   return (
     <>
       <section id="sertifikat">
@@ -26,9 +27,9 @@ const Certificate = ({ certificates }: Props) => {
           <div className="animate_top text-center mx-auto">
             <SectionHeader
               headerInfo={{
-                title: `SERTIFIKAT`,
-                subtitle: `Sertifikat yang dimiliki`,
-                description: `Beberapa sertifikat yang dimiliki dari berbagai macam platform pembelajaran online dan pelatihan yang pernah diikuti.`,
+                title: `${dict.certificate.title}`,
+                subtitle: `${dict.certificate.subtitle}`,
+                description: `${dict.certificate.description}`,
               }}
             />
           </div>

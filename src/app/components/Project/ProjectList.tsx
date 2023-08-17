@@ -8,9 +8,10 @@ import { EyeIcon, CalendarDaysIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   projects: Project[];
+  dict: any;
 };
 
-function ProjectList({ projects }: Props) {
+function ProjectList({ projects, dict }: Props) {
   return (
     <div>
       {/* <!-- ===== Blog Grid Start ===== --> */}
@@ -34,7 +35,7 @@ function ProjectList({ projects }: Props) {
               transition={{ duration: 1, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <p className="text-center">Tidak Ada Proyek</p>
+              <p className="text-center">{dict.allProject.noShow}</p>
             </motion.div>
           </h3>
         ) : (
@@ -61,7 +62,7 @@ function ProjectList({ projects }: Props) {
                     className="animate_top bg-white dark:bg-blacksection rounded-lg shadow-solid-8 p-4 pb-9"
                   >
                     <Link
-                      href={`/project/${project.slug.current}`}
+                      href={`/${dict.lang}/project/${project.slug.current}`}
                       className="block relative aspect-[368/239]"
                     >
                       <Image
@@ -74,7 +75,9 @@ function ProjectList({ projects }: Props) {
                     <div className="px-4">
                       {project.technologies.slice(0, 2).map((technology) => (
                         <div key={technology._id} className="inline-flex">
-                          <Link href={`/technology/${technology.slug.current}`}>
+                          <Link
+                            href={`/${dict.lang}/technology/${technology.slug.current}`}
+                          >
                             <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
                               #{technology.title}
                             </span>
@@ -82,7 +85,9 @@ function ProjectList({ projects }: Props) {
                         </div>
                       ))}
                       <h4 className="font-medium text-lg xl:text-itemtitle2 text-black hover:text-primary dark:hover:text-primary dark:text-white my-3">
-                        <Link href={`/project/${project.slug.current}`}>
+                        <Link
+                          href={`/${dict.lang}/project/${project.slug.current}`}
+                        >
                           {`${project.title.slice(0, 40)}`}
                         </Link>
                       </h4>
@@ -90,7 +95,7 @@ function ProjectList({ projects }: Props) {
                       <p className="inline-flex">
                         <CalendarDaysIcon className="h-6 w-6 mr-2" />
                         {new Date(project._createdAt).toLocaleDateString(
-                          "id-ID",
+                          dict.dateLocale,
                           {
                             day: "numeric",
                             month: "long",
@@ -112,7 +117,7 @@ function ProjectList({ projects }: Props) {
                             className="flex items-center"
                           >
                             <EyeIcon className="h-6 w-6 mr-2" />
-                            Detail Proyek
+                            {dict.allProject.button}
                           </Link>
                         </div>
                       </div>
