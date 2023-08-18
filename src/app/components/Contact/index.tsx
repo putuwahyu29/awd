@@ -105,6 +105,7 @@ const Contact = ({ dict }: Props) => {
                     placeholder={dict.contact.message}
                     rows={4}
                     required
+                    name=message
                     className="w-full bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white"
                   ></textarea>
                 </div>
