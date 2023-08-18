@@ -26,14 +26,7 @@ const Hero = ({ dict }: Props) => {
                 Data Enginer & Software Developer
               </h4>
               <p>{dict.hero.subtitle}</p>
-
               <div className="mt-10 inline-flex">
-                {/* <button
-                  aria-label="tes"
-                  className="flex bg-black hover:bg-blackho dark:bg-btndark text-white rounded-full ease-in-out duration-300 px-7.5 py-2.5 mr-5"
-                >
-                  <a href="#">Curriculum Vitae</a>
-                </button> */}
                 <button
                   aria-label="tes"
                   className="flex bg-black hover:bg-blackho dark:bg-btndark text-white rounded-full ease-in-out duration-300 px-7.5 py-2.5"
