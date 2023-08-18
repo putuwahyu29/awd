@@ -64,19 +64,20 @@ const Contact = ({ dict }: Props) => {
                 {dict.contact.title}
               </h2>
 
-              <form
-                action="https://formbold.com/s/unique_form_id"
-                method="POST"
-              >
+              <form action="https://app.formbold.com/s/6QKVp" method="POST">
                 <div className="flex flex-col lg:flex-row lg:justify-between gap-7.5 lg:gap-14 mb-7.5">
                   <input
                     type="text"
                     placeholder={dict.contact.name}
+                    name="name"
                     className="w-full lg:w-1/2 bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white pb-3.5"
+                    required
                   />
 
                   <input
                     type="email"
+                    name="email"
+                    required
                     placeholder={dict.contact.email}
                     className="w-full lg:w-1/2 bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white pb-3.5"
                   />
@@ -85,12 +86,15 @@ const Contact = ({ dict }: Props) => {
                 <div className="flex flex-col lg:flex-row lg:justify-between gap-7.5 lg:gap-14 mb-12.5">
                   <input
                     type="text"
+                    name="subject"
+                    required
                     placeholder={dict.contact.subject}
                     className="w-full lg:w-1/2 bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white pb-3.5"
                   />
 
                   <input
                     type="text"
+                    name="phone"
                     placeholder={dict.contact.phoneNumber}
                     className="w-full lg:w-1/2 bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white pb-3.5"
                   />
@@ -100,6 +104,7 @@ const Contact = ({ dict }: Props) => {
                   <textarea
                     placeholder={dict.contact.message}
                     rows={4}
+                    required
                     className="w-full bg-transparent border-b border-stroke dark:border-strokedark focus-visible:outline-none focus:border-waterloo dark:focus:border-manatee focus:placeholder:text-black dark:focus:placeholder:text-white"
                   ></textarea>
                 </div>
@@ -107,9 +112,11 @@ const Contact = ({ dict }: Props) => {
                 <div className="flex flex-wrap xl:justify-between ">
                   <div className="flex mb-4 md:mb-0">
                     <input
+                      name="checklist"
                       id="default-checkbox"
                       type="checkbox"
-                      value=""
+                      value="yes"
+                      required
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mt-2"
                     />
                     <label
@@ -167,7 +174,7 @@ const Contact = ({ dict }: Props) => {
 
               <div className="mb-7 5">
                 <h4 className="font-medium text-black dark:text-white text-metatitle3 mb-4">
-                  Alamat
+                  {dict.contact.address}
                 </h4>
                 <p>Lombok Timur, Nusa Tenggara Barat, Indonesia</p>
               </div>

@@ -96,8 +96,11 @@ const Header = ({ lang }: Props) => {
         >
           <nav>
             <ul className="flex lg:items-center flex-col lg:flex-row gap-5 lg:gap-10">
-              {menuData.map((menuItem, key) => (
-                <li key={key} className={menuItem.submenu && "group relative"}>
+              {menuData.map((menuItem) => (
+                <li
+                  key={menuItem.id}
+                  className={menuItem.submenu && "group relative"}
+                >
                   {menuItem.show ? (
                     <div>
                       {menuItem.submenu ? (
@@ -123,10 +126,10 @@ const Header = ({ lang }: Props) => {
                               dropdownToggler ? "flex" : ""
                             }`}
                           >
-                            {menuItem.submenu.map((item, key) => (
-                              <li key={key} className="hover:text-primary">
-                                <Link href={item.path || "#"}>
-                                  {item.title}
+                            {menuItem.submenu.map((item) => (
+                              <li key={item.id} className="hover:text-primary">
+                                <Link href={`/${lang}${item.path}`}>
+                                  {lang === "id" ? item.title : item.titleEn}
                                 </Link>
                               </li>
                             ))}
@@ -134,14 +137,14 @@ const Header = ({ lang }: Props) => {
                         </>
                       ) : (
                         <Link
-                          href={`${menuItem.path}`}
+                          href={`/${lang}${menuItem.path}`}
                           className={
-                            pathUrl === menuItem.path
+                            pathUrl === `/${lang}${menuItem.path}`
                               ? "hover:text-primary text-primary"
                               : "hover:text-primary"
                           }
                         >
-                          {menuItem.title}
+                          {lang === "id" ? menuItem.title : menuItem.titleEn}
                         </Link>
                       )}
                     </div>
@@ -165,12 +168,13 @@ const Header = ({ lang }: Props) => {
             )}
             <ThemeToggler />
 
-            <Link
-              href="#"
+            <a
+              href="https://docs.awd.my.id"
+              target="_blank"
               className="flex items-center justify-center bg-primary hover:bg-primaryho ease-in-out duration-300 text-white text-regular rounded-full py-2.5 px-7.5"
             >
-              Curriculum Vitae
-            </Link>
+              Docs
+            </a>
           </div>
         </div>
       </div>

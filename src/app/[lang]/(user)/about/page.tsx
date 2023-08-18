@@ -25,9 +25,9 @@ const AboutPage = async ({ params: { lang } }: Props) => {
         <div className="animate_top text-center mx-auto">
           <SectionHeader
             headerInfo={{
-              title: `TENTANG`,
-              subtitle: `Tentang Saya`,
-              description: `Deskripsi singkat tentang saya`,
+              title: `${dict.aboutMe.title}`,
+              subtitle: `${dict.aboutMe.subtitle}`,
+              description: `${dict.aboutMe.description}`,
             }}
           />
         </div>

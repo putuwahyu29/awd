@@ -29,7 +29,7 @@ export default function RootLayout({
           <Lines />
           <Header lang={params.lang} />
           {children}
-          <Footer />
+          <Footer lang={params.lang} />
           <ScrollToTop />
         </ThemeProvider>
       </body>

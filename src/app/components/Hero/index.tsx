@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 type Props = {
@@ -7,12 +7,6 @@ type Props = {
 };
 
 const Hero = ({ dict }: Props) => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-  };
-
   return (
     <>
       <section
@@ -33,12 +27,18 @@ const Hero = ({ dict }: Props) => {
               </h4>
               <p>{dict.hero.subtitle}</p>
 
-              <div className="mt-10">
+              <div className="mt-10 inline-flex">
+                <button
+                  aria-label="tes"
+                  className="flex bg-black hover:bg-blackho dark:bg-btndark text-white rounded-full ease-in-out duration-300 px-7.5 py-2.5 mr-5"
+                >
+                  <a href="#">Curriculum Vitae</a>
+                </button>
                 <button
                   aria-label="tes"
                   className="flex bg-black hover:bg-blackho dark:bg-btndark text-white rounded-full ease-in-out duration-300 px-7.5 py-2.5"
                 >
-                  <a href="#kontak">Hubungi Saya</a>
+                  <a href="#kontak">{dict.hero.button}</a>
                 </button>
               </div>
             </div>

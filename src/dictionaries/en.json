@@ -1,9 +1,9 @@
 {
   "lang": "en",
-  "dateLocale" : "en-US",
+  "dateLocale": "en-US",
   "hero": {
     "title": "Hello Everyone👋, Let me introduce my name",
-    "subtitle": "Welcome to agus Wahyu's portfolio web page",
+    "subtitle": "Welcome to the portfolio web page of agus wahyu",
     "button": "Contact Me"
   },
   "about": {
@@ -20,7 +20,7 @@
   },
   "skill": {
     "title": "Skill",
-    "subtitle": "Spoken language.",
+    "subtitle": "Mastered programming language",
     "description": "Markup language, the programming that I have learned and have mastered is Python which I usually use for data processing. Then HTML and CSS to build the basic framework of the website. Furthermore, Javascript which can be used as a frontend or full stack with Node.JS. Apart from that, Java is used to create desktop applications, websites and android applications. Apart from Python, I also use R for data processing."
   },
   "certificate": {
@@ -75,12 +75,12 @@
   "allCategory": {
     "title": "Category",
     "subtitle": "All Categories",
-    "description": "Category :"
+    "description": "All categories the article "
   },
   "allTechnology": {
     "title": "Technology",
     "subtitle": "All Technology",
-    "description": "Technology :"
+    "description": "All technology the project"
   },
   "filterBlog": {
     "title": "Article",
@@ -91,5 +91,10 @@
     "title": "Project",
     "subtitle": "Project Filter",
     "description": "Technology"
+  },
+  "aboutMe": {
+    "title": "About",
+    "subtitle": "About Me",
+    "description": "A brief description of me"
   }
 }
