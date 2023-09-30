@@ -71,7 +71,7 @@ const Certificate = ({ certificates, dict }: Props) => {
               breakpoints={{
                 // when window width is >= 640px
                 0: {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                 },
                 // when window width is >= 768px
                 768: {
