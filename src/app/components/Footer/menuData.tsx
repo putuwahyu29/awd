@@ -11,10 +11,10 @@ let menuData: Menu[] = [
   },
   {
     id: 2,
-    title: "Kursus",
-    titleEn: "Course",
+    title: "Artikel",
+    titleEn: "Article",
     newTab: true,
-    path: "https://site.awd.my.id",
+    path: "https://blog.awd.my.id",
     show: true,
   },
   {
