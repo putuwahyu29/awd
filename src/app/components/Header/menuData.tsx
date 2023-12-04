@@ -19,14 +19,6 @@ let menuData: Menu[] = [
   },
   {
     id: 3,
-    title: "Artikel",
-    titleEn: "Blog",
-    newTab: false,
-    path: "/blog",
-    show: true,
-  },
-  {
-    id: 4,
     title: "Tentang",
     titleEn: "About",
     newTab: false,

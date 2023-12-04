@@ -40,13 +40,6 @@
     "findMe": "Temukan Saya di",
     "address": "Alamat"
   },
-  "allBlog": {
-    "title": "Artikel",
-    "subtitle": "Semua Artikel",
-    "description": "Terdapat berbagai macam artikel yang dapat dibaca, mulai dari artikel tentang teknologi, tutorial, dan lain-lain.",
-    "button": "Baca Selengkapnya",
-    "noShow": "Tidak ada artikel"
-  },
   "allProject": {
     "title": "Proyek",
     "subtitle": "Semua Proyek",
@@ -64,28 +57,10 @@
     "contributor": "Kontributor",
     "updatedAt": "Diperbarui "
   },
-  "oneBlog": {
-    "author": "Penulis",
-    "updatedAt": "Diterbitkan pada",
-    "share": "Bagikan Ke",
-    "relatedBlog": "Artikel Terkait",
-    "allCategory": "Semua Kategori",
-    "searchButton": "Cari Artikel"
-  },
-  "allCategory": {
-    "title": "Kategori",
-    "subtitle": "Semua Kategori",
-    "description": "Semua kategori yang ada"
-  },
   "allTechnology": {
     "title": "Teknologi",
     "subtitle": "Semua Teknologi",
     "description": "Semua teknologi yang ada"
-  },
-  "filterBlog": {
-    "title": "Artikel",
-    "subtitle": "Filter Artikel",
-    "description": "Kategori"
   },
   "filterProject": {
     "title": "Proyek",

@@ -40,13 +40,6 @@
     "findMe": "Find Me on",
     "address": "Address"
   },
-  "allBlog": {
-    "title": "Article",
-    "subtitle": "All Articles",
-    "description": "There are various kinds of articles that can be read, ranging from articles about technology, tutorials, and others.",
-    "button": "Read More",
-    "noShow": "No articles"
-  },
   "allProject": {
     "title": "Project",
     "subtitle": "All Projects",
@@ -64,28 +57,10 @@
     "contributor": "Contributor",
     "updatedAt": "Updated "
   },
-  "oneBlog": {
-    "author": "Author",
-    "updatedAt": "Published at",
-    "share": "Share To",
-    "relatedBlog": "Related Articles",
-    "allCategory": "All Categories",
-    "searchButton": "Search Article"
-  },
-  "allCategory": {
-    "title": "Category",
-    "subtitle": "All Categories",
-    "description": "All categories the article "
-  },
   "allTechnology": {
     "title": "Technology",
     "subtitle": "All Technology",
     "description": "All technology the project"
-  },
-  "filterBlog": {
-    "title": "Article",
-    "subtitle": "Article Filter",
-    "description": "Category"
   },
   "filterProject": {
     "title": "Project",

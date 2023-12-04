@@ -1,8 +1,6 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import category from "./schemas/blog/category";
-import post from "./schemas/blog/post";
-import author from "./schemas/blog/author";
+import author from "./schemas/project/author";
 import project from "./schemas/project";
 import technology from "schemas/project/technology";
 import certificate from "./schemas/certificate";
@@ -10,14 +8,12 @@ import setting from "schemas/singleton/setting";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    //  Artikel
-    post,
-    author,
-    category,
+    
 
     // Proyek
     project,
     technology,
+    author,
 
     // Sertifikat
     certificate,

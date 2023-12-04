@@ -59,7 +59,7 @@ const Certificate = ({ certificates, dict }: Props) => {
             {/* <!-- Additional required wrapper --> */}
             <Swiper
               spaceBetween={50}
-              slidesPerView={3}
+              slidesPerView={2}
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
@@ -75,7 +75,7 @@ const Certificate = ({ certificates, dict }: Props) => {
                 },
                 // when window width is >= 768px
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                 },
               }}
             >

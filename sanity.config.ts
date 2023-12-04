@@ -26,12 +26,10 @@ import { media } from "sanity-plugin-media";
 import { documentInternationalization } from "@sanity/document-internationalization";
 
 export const PREVIEWABLE_DOCUMENT_TYPES = [
-  schema.types.find((t) => t.name === "post")?.name || "",
   schema.types.find((t) => t.name === "project")?.name || "",
 ] satisfies string[];
 
 export const PREVIEWABLE_DOCUMENT_TYPES_REQUIRING_SLUGS = [
-  schema.types.find((t) => t.name === "post")?.name || "",
   schema.types.find((t) => t.name === "project")?.name || "",
 ] satisfies typeof PREVIEWABLE_DOCUMENT_TYPES;
 
@@ -96,7 +94,7 @@ export default defineConfig({
         { id: "id", title: "Indonesia" },
         { id: "en", title: "English" },
       ],
-      schemaTypes: ["post", "project"],
+      schemaTypes: ["project"],
     }),
   ],
   studio: {

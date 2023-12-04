@@ -7,15 +7,6 @@ declare module "common-types" {
     _updatedAt: string;
   };
 
-  interface Post extends Base {
-    author: Author;
-    body: Block[];
-    categories: Category[];
-    mainImage: Image;
-    slug: Slug;
-    title: string;
-    description: string;
-  }
 
   interface Project extends Base {
     body: Block[];
@@ -67,11 +58,6 @@ declare module "common-types" {
     text: string;
   }
 
-  interface Category extends Base {
-    description: string;
-    title: string;
-    slug: Slug;
-  }
 
   interface Technology extends Base {
     description: string;
