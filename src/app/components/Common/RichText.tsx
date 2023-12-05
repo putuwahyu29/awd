@@ -14,10 +14,10 @@ export const RichText = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="mb-10 w-full overflow-hidden">
-          <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+        <div className="mb-5 w-full overflow-hidden">
+          <div className="relative aspect-[97/60] w-full">
             <Image
-              className="object-cover object-center rounded-md"
+              className="object-none object-center rounded-md"
               src={urlFor(value).url()}
               alt="Blog post Image"
               fill
