@@ -66,7 +66,7 @@ function Project({ projects, dict }: Props) {
                         <Link
                           href={`/${dict.lang}/technology/${technology.slug.current}`}
                         >
-                          <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
+                          <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-2 mt-1">
                             {technology.title}
                           </span>
                         </Link>
