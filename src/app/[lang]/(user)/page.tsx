@@ -16,6 +16,7 @@ export const fetchCache = "force-no-store";
 export const metadata: Metadata = {
   title: "Awd - Beranda",
   description: "Awd",
+  manifest: "https://awd.my.id/images/og-image.png",
 };
 
 type Props = {
