@@ -5,7 +5,7 @@ import urlFor from "lib/urlFor";
 import type { Project } from "common-types";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { EyeIcon, CalendarDaysIcon } from "@heroicons/react/24/solid";
+// import { EyeIcon, CalendarDaysIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import ProjectBanner from "@/app/components/Project/ProjectBanner";
 
@@ -63,7 +63,9 @@ function Project({ projects, dict }: Props) {
                 <div className="px-4">
                   {project.technologies.slice(0, 2).map((technology) => (
                     <div key={technology._id} className="inline-flex">
-                      <Link href={`/${dict.lang}/technology/${technology.slug.current}`}>
+                      <Link
+                        href={`/${dict.lang}/technology/${technology.slug.current}`}
+                      >
                         <span className="bg-primary text-white text-metatitle inline-flex rounded-full py-0.5 px-4 mr-4 mt-3">
                           #{technology.title}
                         </span>
@@ -71,19 +73,12 @@ function Project({ projects, dict }: Props) {
                     </div>
                   ))}
                   <h4 className="font-medium text-lg xl:text-itemtitle2 text-black hover:text-primary dark:hover:text-primary dark:text-white my-3">
-                    <Link href={`/${dict.lang}/project/${project.slug.current}`}>
+                    <Link
+                      href={`/${dict.lang}/project/${project.slug.current}`}
+                    >
                       {`${project.title.slice(0, 40)}`}
                     </Link>
                   </h4>
-
-                  <p className="inline-flex">
-                    <CalendarDaysIcon className="h-6 w-6 mr-2" />
-                    {new Date(project._updatedAt).toLocaleDateString(dict.dateLocale, {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </p>
 
                   <p>
                     {project.description
@@ -92,12 +87,11 @@ function Project({ projects, dict }: Props) {
                   </p>
 
                   <div className="mt-5 flex justify-between">
-                    <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300">
+                    <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded-lg hover:bg-primaryho ease-in-out duration-300">
                       <Link
                         href={`/${dict.lang}/project/${project.slug.current}`}
                         className="flex items-center"
                       >
-                        <EyeIcon className="h-6 w-6 mr-2" />
                         {dict.project.button}
                       </Link>
                     </div>

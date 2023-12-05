@@ -23,7 +23,7 @@ const Hero = ({ dict }: Props) => {
                 I Putu Agus Wahyu Dupayana
               </h1>
               <h4 className="text-black dark:text-white text-lg font-medium mb-4.5">
-                Data Enginer & Software Developer
+                Data Engineer & Software Engineer
               </h4>
               <p>{dict.hero.subtitle}</p>
               <div className="mt-10 inline-flex">

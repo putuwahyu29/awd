@@ -4,7 +4,6 @@ import urlFor from "lib/urlFor";
 import type { Project } from "common-types";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { EyeIcon, CalendarDaysIcon } from "@heroicons/react/24/solid";
 
 type Props = {
   projects: Project[];
@@ -92,18 +91,6 @@ function ProjectList({ projects, dict }: Props) {
                         </Link>
                       </h4>
 
-                      <p className="inline-flex">
-                        <CalendarDaysIcon className="h-6 w-6 mr-2" />
-                        {new Date(project._updatedAt).toLocaleDateString(
-                          dict.dateLocale,
-                          {
-                            day: "numeric",
-                            month: "long",
-                            year: "numeric",
-                          }
-                        )}
-                      </p>
-
                       <p>
                         {project.description
                           ? `${project.description.slice(0, 100)}...`
@@ -111,12 +98,11 @@ function ProjectList({ projects, dict }: Props) {
                       </p>
 
                       <div className="mt-5 flex justify-between">
-                        <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded hover:bg-primaryho ease-in-out duration-300">
+                        <div className="flex items-center justify-between p-5 bg-primary text-white py-2 px-4 rounded-lg hover:bg-primaryho ease-in-out duration-300">
                           <Link
                             href={`/project/${project.slug.current}`}
                             className="flex items-center"
                           >
-                            <EyeIcon className="h-6 w-6 mr-2" />
                             {dict.allProject.button}
                           </Link>
                         </div>

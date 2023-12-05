@@ -119,7 +119,7 @@ const Footer = ({ lang }: Props) => {
                   className="animate_top"
                 >
                   <h4 className="font-medium text-black dark:text-white text-itemtitle2 mb-9">
-                    Newsletter
+                    Buletin
                   </h4>
                   <p className="mb-4 w-[90%]">
                     {lang == "id"
