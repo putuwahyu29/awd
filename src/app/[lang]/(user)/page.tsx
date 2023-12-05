@@ -14,9 +14,16 @@ export const revalidate = 60;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Awd - Beranda",
+  title: "Beranda | Awd",
   description: "Awd",
-  manifest: "https://awd.my.id/images/og-image.png",
+  openGraph: {
+    title: "Beranda | Awd",
+    images: [
+      {
+        url: "https://awd.my.id/images/og-image.png",
+      },
+    ],
+  },
 };
 
 type Props = {

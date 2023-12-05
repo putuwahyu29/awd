@@ -10,7 +10,7 @@ import Link from "next/link";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  title: "Awd - Terjadi Kesalahan",
+  title: "Terjadi Kesalahan | Awd",
   description: "Awd",
 };
 

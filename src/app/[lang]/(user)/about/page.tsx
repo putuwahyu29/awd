@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { getDictionary } from "@/app/[lang]/dictionaries";
 
 export const metadata: Metadata = {
-  title: "Awd - Tentang Saya",
+  title: "Tentang Saya | Awd",
   description: "Awd",
 };
 

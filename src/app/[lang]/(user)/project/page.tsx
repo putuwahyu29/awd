@@ -9,7 +9,7 @@ export const revalidate = 60;
 export const fetchCache = "force-no-store";
 
 export const metadata: Metadata = {
-  title: "Awd - Semua Proyek",
+  title: "Semua Proyek | Awd",
   description: "Awd",
 };
 
