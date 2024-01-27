@@ -55,6 +55,7 @@
     "technology": "Teknologi",
     "type": "Jenis",
     "contributor": "Kontributor",
+    "createdAt": "Dibuat",
     "updatedAt": "Diperbarui "
   },
   "allTechnology": {
@@ -67,9 +68,9 @@
     "subtitle": "Filter Proyek",
     "description": "Teknologi"
   },
-  "aboutMe" : {
-    "title" : "Tentang",
-    "subtitle" : "Tentang Saya",
-    "description" : "Deskripsi singkat tentang saya"
+  "aboutMe": {
+    "title": "Tentang",
+    "subtitle": "Tentang Saya",
+    "description": "Deskripsi singkat tentang saya"
   }
 }

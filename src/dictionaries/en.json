@@ -55,6 +55,7 @@
     "technology": "Technology",
     "type": "Type",
     "contributor": "Contributor",
+    "createdAt": "Created",
     "updatedAt": "Updated "
   },
   "allTechnology": {

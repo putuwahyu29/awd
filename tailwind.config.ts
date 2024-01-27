@@ -28,7 +28,7 @@ const config: Config = {
       primary: "#006BFF",
       primaryho: "#0063EC",
       meta: "#20C5A8",
-      waterloo: "#f1f1f4",
+      waterloo: "#757693",
       manatee: "#999AA1",
       alabaster: "#FBFBFB",
       zumthor: "#EDF5FF",

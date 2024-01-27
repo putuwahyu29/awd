@@ -26,7 +26,7 @@ const TechnologyPage = async ({ params: { lang } }: Props) => {
   const technologies = await getClient().fetch(
     groq`*[_type == 'technology'] {
         ...,
-      } | order(_updatedAt desc)`
+      } | order(_createdAt desc)`
   );
   return (
     <>

@@ -28,7 +28,7 @@ const ProjectPage = async ({ params: { lang } }: Props) => {
     linkSource,
     technologies[]->,
     language,
-  } | order(_updatedAt desc)`,
+  } | order(_createdAt desc)`,
     { lang }
   );
 

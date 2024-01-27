@@ -77,6 +77,23 @@ function SidebarProject({ project, dict }: Props) {
                 <tr>
                   <td className="px-6 py-4 whitespace-nowrap ">
                     <div className="flex justify-between">
+                      <div>{dict.oneProject.createdAt}</div>
+                      <div>
+                        {new Date(project._createdAt).toLocaleDateString(
+                          "id-ID",
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )}
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 whitespace-nowrap ">
+                    <div className="flex justify-between">
                       <div>{dict.oneProject.updatedAt}</div>
                       <div>
                         {new Date(project._updatedAt).toLocaleDateString(

@@ -224,7 +224,7 @@ const Footer = ({ lang }: Props) => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <p>Copyright &copy; {new Date().getFullYear()} Awd</p>
+              <p>Copyright &copy; 2023 - {new Date().getFullYear()} Awd</p>
             </motion.div>
           </div>
           {/* <!-- Footer Bottom --> */}
