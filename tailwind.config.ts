@@ -29,7 +29,7 @@ const config: Config = {
       primaryho: "#0063EC",
       meta: "#20C5A8",
       waterloo: "#757693",
-      manatee: "#999AA1",
+      manatee: "#f2f2f3",
       alabaster: "#FBFBFB",
       zumthor: "#EDF5FF",
       socialicon: "#D1D8E0",
