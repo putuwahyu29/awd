@@ -41,7 +41,7 @@ export default async function HomePage({ params: { lang } }: Props) {
     linkPreview,
     linkSource,
     technologies[]->
-  } | order(_createdAt desc)`,
+  } | order(publishedAt desc)`,
     { lang }
   );
 

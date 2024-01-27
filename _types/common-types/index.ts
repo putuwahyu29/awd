@@ -7,7 +7,6 @@ declare module "common-types" {
     _updatedAt: string;
   };
 
-
   interface Project extends Base {
     body: Block[];
     technologies: Technology[];
@@ -19,6 +18,7 @@ declare module "common-types" {
     linkSource: URL;
     type: string;
     author: Author;
+    publishedAt: string;
   }
 
   interface Author extends Base {
@@ -57,7 +57,6 @@ declare module "common-types" {
     marks: string[];
     text: string;
   }
-
 
   interface Technology extends Base {
     description: string;

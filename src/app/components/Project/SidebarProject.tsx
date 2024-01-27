@@ -79,7 +79,7 @@ function SidebarProject({ project, dict }: Props) {
                     <div className="flex justify-between">
                       <div>{dict.oneProject.createdAt}</div>
                       <div>
-                        {new Date(project._createdAt).toLocaleDateString(
+                        {new Date(project.publishedAt).toLocaleDateString(
                           "id-ID",
                           {
                             day: "numeric",
