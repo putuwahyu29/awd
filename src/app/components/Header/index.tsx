@@ -40,11 +40,11 @@ const Header = ({ lang }: Props) => {
     >
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0 lg:flex items-center justify-between relative">
         <div className="w-full lg:w-1/4 flex items-center justify-between">
-          <a href="/">
+          <Link href="/">
             <h1 className="text-primary text-xl lg:text-hero font-bold">
               awd.
             </h1>
-          </a>
+          </Link>
 
           {/* <!-- Hamburger Toggle BTN --> */}
           <button
